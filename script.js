@@ -24,9 +24,26 @@ const allMembers = ['Sid', 'Adarsh', 'Remin', 'Fadil', 'Edwin', 'Jasim', 'Akash'
 async function loadDutyOverrides() {
     if (USE_GOOGLE_SHEETS) {
         try {
-            const response = await fetch(GOOGLE_APPS_SCRIPT_URL);
+            const response = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
             const data = await response.json();
-            return data;
+            
+            // Verify data is valid
+            if (data && typeof data === 'object' && !data.error) {
+                console.log('Loaded swaps from Google Sheets:', data);
+                return data;
+            } else {
+                throw new Error('Invalid data from Google Sheets');
+            }
         } catch (error) {
             console.error('Error loading from Google Sheets, falling back to localStorage:', error);
             return loadDutyOverridesLocal();
@@ -337,7 +354,17 @@ async function init() {
     const clearSwapBtn = document.getElementById('clearSwapBtn');
 
     // Load overrides from Google Sheets or localStorage
-    window.currentOverrides = await loadDutyOverrides();
+    try {
+        window.currentOverrides = await loadDutyOverrides();
+    } catch (error) {
+        console.error('Failed to load overrides:', error);
+        window.currentOverrides = loadDutyOverridesLocal();
+    }
+    
+    // Ensure it's always an object
+    if (!window.currentOverrides || typeof window.currentOverrides !== 'object') {
+        window.currentOverrides = {};
+    }
 
     // Set today's date as default
     const today = new Date();
@@ -382,10 +409,16 @@ async function init() {
     // If using Google Sheets, sync every 10 seconds
     if (USE_GOOGLE_SHEETS) {
         setInterval(async () => {
-            const updated = await loadDutyOverrides();
-            window.currentOverrides = updated;
-            const selectedDate = new Date(datePicker.value + 'T00:00:00');
-            updateDisplay(selectedDate);
+            try {
+                const updated = await loadDutyOverrides();
+                if (updated && typeof updated === 'object') {
+                    window.currentOverrides = updated;
+                    const selectedDate = new Date(datePicker.value + 'T00:00:00');
+                    updateDisplay(selectedDate);
+                }
+            } catch (error) {
+                console.error('Error syncing from Google Sheets:', error);
+            }
         }, 10000);
     }
 }
