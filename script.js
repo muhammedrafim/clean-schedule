@@ -1,4 +1,12 @@
+// ============================================
+// CONFIGURATION - UPDATE THIS with your Google Apps Script URL
+// ============================================
+const GOOGLE_APPS_SCRIPT_URL = ''; // Paste your deployment URL here
+const USE_GOOGLE_SHEETS = GOOGLE_APPS_SCRIPT_URL.length > 0;
+
+// ============================================
 // Schedule Data
+// ============================================
 const kitchenSchedule = {
     1: 'Sid',        // Monday
     2: 'Adarsh',     // Tuesday
@@ -8,6 +16,66 @@ const kitchenSchedule = {
     6: 'Jasim',      // Saturday
     0: 'Akash',      // Sunday
 };
+
+// All team members
+const allMembers = ['Sid', 'Adarsh', 'Remin', 'Fadil', 'Edwin', 'Jasim', 'Akash'];
+
+// Load duty overrides from Google Sheets or localStorage
+async function loadDutyOverrides() {
+    if (USE_GOOGLE_SHEETS) {
+        try {
+            const response = await fetch(GOOGLE_APPS_SCRIPT_URL);
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error('Error loading from Google Sheets, falling back to localStorage:', error);
+            return loadDutyOverridesLocal();
+        }
+    } else {
+        return loadDutyOverridesLocal();
+    }
+}
+
+// Load from localStorage
+function loadDutyOverridesLocal() {
+    const stored = localStorage.getItem('dutyOverrides');
+    return stored ? JSON.parse(stored) : {};
+}
+
+// Save duty overrides to Google Sheets or localStorage
+async function saveDutyOverrides(dateStr, taskType, person) {
+    if (USE_GOOGLE_SHEETS) {
+        try {
+            const payload = {
+                date: dateStr,
+                taskType: taskType,
+                person: person
+            };
+            
+            await fetch(GOOGLE_APPS_SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify(payload)
+            });
+        } catch (error) {
+            console.error('Error saving to Google Sheets:', error);
+            saveDutyOverridesLocal(dateStr, taskType, person);
+        }
+    } else {
+        saveDutyOverridesLocal(dateStr, taskType, person);
+    }
+}
+
+// Save to localStorage
+function saveDutyOverridesLocal(dateStr, taskType, person) {
+    const overrides = loadDutyOverridesLocal();
+    if (!overrides[dateStr]) {
+        overrides[dateStr] = {};
+    }
+    if (taskType && person) {
+        overrides[dateStr][taskType] = person;
+    }
+    localStorage.setItem('dutyOverrides', JSON.stringify(overrides));
+}
 
 // Bathroom schedule - specific dates
 const bathroomSchedule = {
@@ -57,15 +125,48 @@ const bathroomSchedule = {
     '2026-12-27': 'Sid',
 };
 
-// Get kitchen duty for a given date
+// Get kitchen duty for a given date (with override check)
 function getKitchenDuty(date) {
+    const dateStr = formatDateISO(date);
+    const overrides = window.currentOverrides || {};
+    
+    // Check if there's an override for this date
+    if (overrides[dateStr] && overrides[dateStr].kitchen) {
+        return overrides[dateStr].kitchen;
+    }
+    
     const dayOfWeek = date.getDay();
-
+    // For Sundays, use the bathroom schedule person (Sunday Common)
+    if (dayOfWeek === 0) {
+        return getBathroomDuty(date);
+    }
     return kitchenSchedule[dayOfWeek];
 }
 
-// Get bathroom duty for a given date
+// Get bathroom duty for a given date (with override check)
 function getBathroomDuty(date) {
+    const dateStr = formatDateISO(date);
+    const overrides = window.currentOverrides || {};
+    
+    // Check if there's an override for this date
+    if (overrides[dateStr] && overrides[dateStr].bathroom) {
+        return overrides[dateStr].bathroom;
+    }
+    
+    return bathroomSchedule[dateStr] || 'Not Scheduled';
+}
+
+// Get original (non-overridden) kitchen duty
+function getKitchenDutyOriginal(date) {
+    const dayOfWeek = date.getDay();
+    if (dayOfWeek === 0) {
+        return getBathroomDutyOriginal(date);
+    }
+    return kitchenSchedule[dayOfWeek];
+}
+
+// Get original (non-overridden) bathroom duty
+function getBathroomDutyOriginal(date) {
     const dateStr = formatDateISO(date);
     return bathroomSchedule[dateStr] || 'Not Scheduled';
 }
@@ -95,6 +196,104 @@ function updateDisplay(date) {
 
     // Update upcoming schedule
     updateUpcomingSchedule(date);
+    
+    // Update swap section UI
+    updateSwapUI(date);
+}
+
+// Update swap UI based on selected date
+function updateSwapUI(date) {
+    const taskTypeSelect = document.getElementById('swapTaskType');
+    const taskType = taskTypeSelect.value;
+    
+    let currentAssignee = '-';
+    
+    if (taskType === 'kitchen') {
+        currentAssignee = getKitchenDuty(date);
+    } else {
+        currentAssignee = getBathroomDuty(date);
+    }
+    
+    document.getElementById('currentAssignee').textContent = currentAssignee;
+    
+    // Populate replacement person dropdown
+    const replacementSelect = document.getElementById('replacementPerson');
+    replacementSelect.innerHTML = '';
+    allMembers.forEach(member => {
+        const option = document.createElement('option');
+        option.value = member;
+        option.textContent = member;
+        replacementSelect.appendChild(option);
+    });
+}
+
+// Apply swap
+async function applySwap(date) {
+    const taskType = document.getElementById('swapTaskType').value;
+    const replacementPerson = document.getElementById('replacementPerson').value;
+    
+    if (!replacementPerson) {
+        showSwapStatus('Please select a replacement person', 'error');
+        return;
+    }
+    
+    const dateStr = formatDateISO(date);
+    
+    // Save to Google Sheets or localStorage
+    await saveDutyOverrides(dateStr, taskType, replacementPerson);
+    
+    // Update local cache
+    if (!window.currentOverrides[dateStr]) {
+        window.currentOverrides[dateStr] = {};
+    }
+    window.currentOverrides[dateStr][taskType] = replacementPerson;
+    
+    showSwapStatus(`Swap applied! ${taskType} duty reassigned to ${replacementPerson}`, 'success');
+    
+    // Update display
+    updateDisplay(date);
+}
+
+// Clear swap for selected date
+async function clearSwap(date) {
+    const dateStr = formatDateISO(date);
+    
+    if (window.currentOverrides[dateStr]) {
+        delete window.currentOverrides[dateStr];
+        
+        // Clear from Google Sheets by deleting both kitchen and bathroom entries
+        if (USE_GOOGLE_SHEETS) {
+            try {
+                // We'll need to call a delete function from Apps Script
+                // For now, save empty entries will overwrite
+            } catch (error) {
+                console.error('Error clearing swaps:', error);
+            }
+        }
+        
+        // Clear from localStorage
+        const localOverrides = loadDutyOverridesLocal();
+        if (localOverrides[dateStr]) {
+            delete localOverrides[dateStr];
+            saveDutyOverridesLocal(dateStr, '', ''); // Dummy call
+        }
+        
+        showSwapStatus('Swap cleared! Schedule restored to original', 'success');
+        updateDisplay(date);
+    } else {
+        showSwapStatus('No swaps to clear for this date', 'error');
+    }
+}
+
+// Show status message
+function showSwapStatus(message, type) {
+    const statusEl = document.getElementById('swapStatus');
+    statusEl.textContent = message;
+    statusEl.className = `swap-status ${type}`;
+    
+    setTimeout(() => {
+        statusEl.className = 'swap-status';
+    }, 3000);
 }
 
 // Update upcoming schedule for next 14 days
@@ -130,9 +329,15 @@ function updateUpcomingSchedule(fromDate) {
 }
 
 // Initialize the page
-function init() {
+async function init() {
     const datePicker = document.getElementById('datePicker');
     const todayBtn = document.getElementById('todayBtn');
+    const swapTaskTypeSelect = document.getElementById('swapTaskType');
+    const applySwapBtn = document.getElementById('applySwapBtn');
+    const clearSwapBtn = document.getElementById('clearSwapBtn');
+
+    // Load overrides from Google Sheets or localStorage
+    window.currentOverrides = await loadDutyOverrides();
 
     // Set today's date as default
     const today = new Date();
@@ -155,6 +360,34 @@ function init() {
         datePicker.value = dateStr;
         updateDisplay(today);
     });
+    
+    // Event listener for swap task type change
+    swapTaskTypeSelect.addEventListener('change', function () {
+        const selectedDate = new Date(datePicker.value + 'T00:00:00');
+        updateSwapUI(selectedDate);
+    });
+    
+    // Event listener for apply swap button
+    applySwapBtn.addEventListener('click', function () {
+        const selectedDate = new Date(datePicker.value + 'T00:00:00');
+        applySwap(selectedDate);
+    });
+    
+    // Event listener for clear swap button
+    clearSwapBtn.addEventListener('click', function () {
+        const selectedDate = new Date(datePicker.value + 'T00:00:00');
+        clearSwap(selectedDate);
+    });
+
+    // If using Google Sheets, sync every 10 seconds
+    if (USE_GOOGLE_SHEETS) {
+        setInterval(async () => {
+            const updated = await loadDutyOverrides();
+            window.currentOverrides = updated;
+            const selectedDate = new Date(datePicker.value + 'T00:00:00');
+            updateDisplay(selectedDate);
+        }, 10000);
+    }
 }
 
 // Run when page loads

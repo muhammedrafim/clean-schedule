@@ -42,6 +42,37 @@
                 </div>
             </div>
 
+            <!-- Swap Section -->
+            <div class="swap-section">
+                <h3>🔄 Swap Duty</h3>
+                <div class="swap-grid">
+                    <div class="swap-field">
+                        <label for="swapTaskType">Task</label>
+                        <select id="swapTaskType">
+                            <option value="kitchen">Kitchen</option>
+                            <option value="bathroom">Bathroom</option>
+                        </select>
+                    </div>
+
+                    <div class="swap-field">
+                        <label>Current Assigned</label>
+                        <div id="currentAssignee" class="readonly-field">-</div>
+                    </div>
+
+                    <div class="swap-field">
+                        <label for="replacementPerson">Replacement Person</label>
+                        <select id="replacementPerson"></select>
+                    </div>
+                </div>
+
+                <div class="swap-actions">
+                    <button id="applySwapBtn" type="button">Apply Swap</button>
+                    <button id="clearSwapBtn" type="button" class="btn-secondary">Clear Swap</button>
+                </div>
+
+                <p id="swapStatus" class="swap-status"></p>
+            </div>
+
             <!-- Upcoming Schedule Section -->
             <div class="upcoming-section">
                 <h3>📅 Upcoming Schedule (Next 14 Days)</h3>
