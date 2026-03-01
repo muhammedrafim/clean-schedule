@@ -74,7 +74,11 @@ main {
     border: 2px solid #667eea;
     border-radius: 8px;
     font-size: 1rem;
+    width: 100%;
     max-width: 100%;
+    min-width: 0;
+    min-inline-size: 0;
+    display: block;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -377,6 +381,10 @@ footer p {
         font-size: 0.9rem;
     }
 
+    .date-picker-section input[type="date"] {
+        font-size: 16px;
+    }
+
     .selected-date h2 {
         font-size: 1.1rem;
         word-wrap: break-word;
@@ -438,5 +446,13 @@ footer p {
 
     footer p {
         font-size: 0.8rem;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    @media (max-width: 375px) {
+        .date-picker-section input[type="date"] {
+            font-size: 16px;
+        }
     }
 }
