@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cleaning Schedule</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧹 Cleaning Schedule</h1>
+        </header>
+
+        <main>
+            <!-- Date Picker Section -->
+            <div class="date-picker-section">
+                <label for="datePicker">Select Date:</label>
+                <input type="date" id="datePicker">
+                <button id="todayBtn" class="btn-today">Today</button>
+            </div>
+
+            <!-- Current Date Display -->
+            <div class="selected-date">
+                <h2 id="selectedDate"></h2>
+            </div>
+
+            <!-- Current Schedule Display -->
+            <div class="schedule-container">
+                <div class="schedule-card kitchen">
+                    <div class="card-header">🍳 Kitchen Duty</div>
+                    <div class="card-content">
+                        <p id="kitchenTask"></p>
+                    </div>
+                </div>
+
+                <div class="schedule-card bathroom">
+                    <div class="card-header">🚿 Bathroom Duty</div>
+                    <div class="card-content">
+                        <p id="bathroomTask"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upcoming Schedule Section -->
+            <div class="upcoming-section">
+                <h3>📅 Upcoming Schedule (Next 14 Days)</h3>
+                <div id="upcomingList" class="upcoming-list"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2026 Household Cleaning Schedule</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
