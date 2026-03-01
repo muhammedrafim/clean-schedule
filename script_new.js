@@ -1,7 +1,7 @@
 // ============================================
 // CONFIGURATION
 // ============================================
-const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzcscpzk_uI6Ryxx7GUIbmzJhto7oEQEsWH2pOlZw-VgGJNK8-rMlUzLWrkkNz-jo8NVQ/exec';
+const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw_gtV7RbvMQevQKyv52KM7wUGmK8C3qZae7Hvr50KBqB0Hs9OvOQ3RBGtwJxzJ2W7tJg/exec';
 
 // All team members
 const allMembers = ['Sid', 'Adarsh', 'Remin', 'Fadil', 'Edwin', 'Jasim', 'Akash'];
