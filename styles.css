@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -52,6 +59,10 @@ main {
     justify-content: center;
 }
 
+.date-picker-section > * {
+    min-width: 0;
+}
+
 .date-picker-section label {
     font-weight: 600;
     color: #333;
@@ -63,6 +74,7 @@ main {
     border: 2px solid #667eea;
     border-radius: 8px;
     font-size: 1rem;
+    max-width: 100%;
     cursor: pointer;
     transition: all 0.3s ease;
 }
@@ -83,6 +95,10 @@ button {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+}
+
+.btn-today {
+    white-space: nowrap;
 }
 
 button:hover {
@@ -260,6 +276,7 @@ footer p {
     .date-picker-section {
         flex-direction: column;
         gap: 10px;
+        align-items: stretch;
     }
 
     .date-picker-section label {
@@ -269,6 +286,8 @@ footer p {
     .date-picker-section input[type="date"],
     .date-picker-section button {
         width: 100%;
+        max-width: 100%;
+        min-width: 0;
     }
 
     .upcoming-item {
@@ -288,6 +307,13 @@ footer p {
 
     .selected-date h2 {
         font-size: 1.4rem;
+    }
+}
+
+@supports (-webkit-touch-callout: none) {
+    .date-picker-section input[type="date"],
+    .date-picker-section button {
+        font-size: 16px;
     }
 }
 
