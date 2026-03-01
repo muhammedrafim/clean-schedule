@@ -40,7 +40,14 @@ async function loadDutyOverrides() {
             // Verify data is valid
             if (data && typeof data === 'object' && !data.error) {
                 console.log('Loaded swaps from Google Sheets:', data);
-                return data;
+                // Ensure dates are strings
+                const normalizedData = {};
+                for (const key in data) {
+                    if (data.hasOwnProperty(key)) {
+                        normalizedData[String(key).trim()] = data[key];
+                    }
+                }
+                return normalizedData;
             } else {
                 throw new Error('Invalid data from Google Sheets');
             }
