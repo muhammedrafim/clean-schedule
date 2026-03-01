@@ -12,21 +12,30 @@ let scheduleData = {};
 // Load complete schedule from Google Sheets
 async function loadSchedule() {
     try {
+        console.log('Fetching schedule from:', GOOGLE_APPS_SCRIPT_URL);
         const response = await fetch(GOOGLE_APPS_SCRIPT_URL);
+        console.log('Response status:', response.status);
+        
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const errorText = await response.text();
+            console.error('Response error:', errorText);
+            throw new Error(`HTTP error! status: ${response.status} - ${errorText}`);
         }
+        
         const data = await response.json();
+        console.log('Data received:', data);
         
         if (data && typeof data === 'object' && !data.error) {
-            console.log('Schedule loaded successfully');
+            console.log('Schedule loaded successfully. Number of dates:', Object.keys(data).length);
             return data;
+        } else if (data && data.error) {
+            throw new Error('Google Sheets error: ' + data.error);
         } else {
-            throw new Error('Invalid schedule data');
+            throw new Error('Invalid schedule data format');
         }
     } catch (error) {
         console.error('Error loading schedule:', error);
-        alert('Failed to load schedule from Google Sheets. Please check your connection.');
+        alert('Failed to load schedule from Google Sheets.\n\nError: ' + error.message + '\n\nPlease:\n1. Check that you created "Schedule" tab in Google Sheets\n2. Imported schedule_data.csv\n3. Updated Apps Script code\n4. Deployed as Web App with "Anyone" access\n\nOpen browser console (F12) for more details.');
         return {};
     }
 }
