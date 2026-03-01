@@ -339,6 +339,7 @@ button:active {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 5px;
 }
 
 .upcoming-task-label {
@@ -350,6 +351,28 @@ button:active {
 .upcoming-task-person {
     font-weight: 600;
     color: #333;
+}
+
+.btn-swap-mini {
+    padding: 4px 12px;
+    font-size: 0.75rem;
+    background: linear-gradient(135deg, #ff9800 0%, #ff6f00 100%);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    margin-top: 5px;
+}
+
+.btn-swap-mini:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(255, 152, 0, 0.3);
+}
+
+.btn-swap-mini:active {
+    transform: translateY(0);
 }
 
 /* Footer */

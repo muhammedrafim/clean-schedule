@@ -1,0 +1,307 @@
+date,kitchen,bathroom
+'2026-03-01,Remin,Remin
+'2026-03-02,Sid,Not Scheduled
+'2026-03-03,Adarsh,Not Scheduled
+'2026-03-04,Remin,Not Scheduled
+'2026-03-05,Fadil,Not Scheduled
+'2026-03-06,Edwin,Not Scheduled
+'2026-03-07,Jasim,Not Scheduled
+'2026-03-08,Sid,Sid
+'2026-03-09,Sid,Not Scheduled
+'2026-03-10,Adarsh,Not Scheduled
+'2026-03-11,Remin,Not Scheduled
+'2026-03-12,Fadil,Not Scheduled
+'2026-03-13,Edwin,Not Scheduled
+'2026-03-14,Jasim,Not Scheduled
+'2026-03-15,Adarsh,Adarsh
+'2026-03-16,Sid,Not Scheduled
+'2026-03-17,Adarsh,Not Scheduled
+'2026-03-18,Remin,Not Scheduled
+'2026-03-19,Fadil,Not Scheduled
+'2026-03-20,Edwin,Not Scheduled
+'2026-03-21,Jasim,Not Scheduled
+'2026-03-22,Jasim,Jasim
+'2026-03-23,Sid,Not Scheduled
+'2026-03-24,Adarsh,Not Scheduled
+'2026-03-25,Remin,Not Scheduled
+'2026-03-26,Fadil,Not Scheduled
+'2026-03-27,Edwin,Not Scheduled
+'2026-03-28,Jasim,Not Scheduled
+'2026-03-29,Edwin,Edwin
+'2026-03-30,Sid,Not Scheduled
+'2026-03-31,Adarsh,Not Scheduled
+'2026-04-01,Remin,Not Scheduled
+'2026-04-02,Fadil,Not Scheduled
+'2026-04-03,Edwin,Not Scheduled
+'2026-04-04,Jasim,Not Scheduled
+'2026-04-05,Fadil,Fadil
+'2026-04-06,Sid,Not Scheduled
+'2026-04-07,Adarsh,Not Scheduled
+'2026-04-08,Remin,Not Scheduled
+'2026-04-09,Fadil,Not Scheduled
+'2026-04-10,Edwin,Not Scheduled
+'2026-04-11,Jasim,Not Scheduled
+'2026-04-12,Akash,Akash
+'2026-04-13,Sid,Not Scheduled
+'2026-04-14,Adarsh,Not Scheduled
+'2026-04-15,Remin,Not Scheduled
+'2026-04-16,Fadil,Not Scheduled
+'2026-04-17,Edwin,Not Scheduled
+'2026-04-18,Jasim,Not Scheduled
+'2026-04-19,Remin,Remin
+'2026-04-20,Sid,Not Scheduled
+'2026-04-21,Adarsh,Not Scheduled
+'2026-04-22,Remin,Not Scheduled
+'2026-04-23,Fadil,Not Scheduled
+'2026-04-24,Edwin,Not Scheduled
+'2026-04-25,Jasim,Not Scheduled
+'2026-04-26,Sid,Sid
+'2026-04-27,Sid,Not Scheduled
+'2026-04-28,Adarsh,Not Scheduled
+'2026-04-29,Remin,Not Scheduled
+'2026-04-30,Fadil,Not Scheduled
+'2026-05-01,Edwin,Not Scheduled
+'2026-05-02,Jasim,Not Scheduled
+'2026-05-03,Adarsh,Adarsh
+'2026-05-04,Sid,Not Scheduled
+'2026-05-05,Adarsh,Not Scheduled
+'2026-05-06,Remin,Not Scheduled
+'2026-05-07,Fadil,Not Scheduled
+'2026-05-08,Edwin,Not Scheduled
+'2026-05-09,Jasim,Not Scheduled
+'2026-05-10,Jasim,Jasim
+'2026-05-11,Sid,Not Scheduled
+'2026-05-12,Adarsh,Not Scheduled
+'2026-05-13,Remin,Not Scheduled
+'2026-05-14,Fadil,Not Scheduled
+'2026-05-15,Edwin,Not Scheduled
+'2026-05-16,Jasim,Not Scheduled
+'2026-05-17,Edwin,Edwin
+'2026-05-18,Sid,Not Scheduled
+'2026-05-19,Adarsh,Not Scheduled
+'2026-05-20,Remin,Not Scheduled
+'2026-05-21,Fadil,Not Scheduled
+'2026-05-22,Edwin,Not Scheduled
+'2026-05-23,Jasim,Not Scheduled
+'2026-05-24,Fadil,Fadil
+'2026-05-25,Sid,Not Scheduled
+'2026-05-26,Adarsh,Not Scheduled
+'2026-05-27,Remin,Not Scheduled
+'2026-05-28,Fadil,Not Scheduled
+'2026-05-29,Edwin,Not Scheduled
+'2026-05-30,Jasim,Not Scheduled
+'2026-05-31,Akash,Akash
+'2026-06-01,Sid,Not Scheduled
+'2026-06-02,Adarsh,Not Scheduled
+'2026-06-03,Remin,Not Scheduled
+'2026-06-04,Fadil,Not Scheduled
+'2026-06-05,Edwin,Not Scheduled
+'2026-06-06,Jasim,Not Scheduled
+'2026-06-07,Remin,Remin
+'2026-06-08,Sid,Not Scheduled
+'2026-06-09,Adarsh,Not Scheduled
+'2026-06-10,Remin,Not Scheduled
+'2026-06-11,Fadil,Not Scheduled
+'2026-06-12,Edwin,Not Scheduled
+'2026-06-13,Jasim,Not Scheduled
+'2026-06-14,Sid,Sid
+'2026-06-15,Sid,Not Scheduled
+'2026-06-16,Adarsh,Not Scheduled
+'2026-06-17,Remin,Not Scheduled
+'2026-06-18,Fadil,Not Scheduled
+'2026-06-19,Edwin,Not Scheduled
+'2026-06-20,Jasim,Not Scheduled
+'2026-06-21,Adarsh,Adarsh
+'2026-06-22,Sid,Not Scheduled
+'2026-06-23,Adarsh,Not Scheduled
+'2026-06-24,Remin,Not Scheduled
+'2026-06-25,Fadil,Not Scheduled
+'2026-06-26,Edwin,Not Scheduled
+'2026-06-27,Jasim,Not Scheduled
+'2026-06-28,Jasim,Jasim
+'2026-06-29,Sid,Not Scheduled
+'2026-06-30,Adarsh,Not Scheduled
+'2026-07-01,Remin,Not Scheduled
+'2026-07-02,Fadil,Not Scheduled
+'2026-07-03,Edwin,Not Scheduled
+'2026-07-04,Jasim,Not Scheduled
+'2026-07-05,Edwin,Edwin
+'2026-07-06,Sid,Not Scheduled
+'2026-07-07,Adarsh,Not Scheduled
+'2026-07-08,Remin,Not Scheduled
+'2026-07-09,Fadil,Not Scheduled
+'2026-07-10,Edwin,Not Scheduled
+'2026-07-11,Jasim,Not Scheduled
+'2026-07-12,Fadil,Fadil
+'2026-07-13,Sid,Not Scheduled
+'2026-07-14,Adarsh,Not Scheduled
+'2026-07-15,Remin,Not Scheduled
+'2026-07-16,Fadil,Not Scheduled
+'2026-07-17,Edwin,Not Scheduled
+'2026-07-18,Jasim,Not Scheduled
+'2026-07-19,Akash,Akash
+'2026-07-20,Sid,Not Scheduled
+'2026-07-21,Adarsh,Not Scheduled
+'2026-07-22,Remin,Not Scheduled
+'2026-07-23,Fadil,Not Scheduled
+'2026-07-24,Edwin,Not Scheduled
+'2026-07-25,Jasim,Not Scheduled
+'2026-07-26,Remin,Remin
+'2026-07-27,Sid,Not Scheduled
+'2026-07-28,Adarsh,Not Scheduled
+'2026-07-29,Remin,Not Scheduled
+'2026-07-30,Fadil,Not Scheduled
+'2026-07-31,Edwin,Not Scheduled
+'2026-08-01,Jasim,Not Scheduled
+'2026-08-02,Sid,Sid
+'2026-08-03,Sid,Not Scheduled
+'2026-08-04,Adarsh,Not Scheduled
+'2026-08-05,Remin,Not Scheduled
+'2026-08-06,Fadil,Not Scheduled
+'2026-08-07,Edwin,Not Scheduled
+'2026-08-08,Jasim,Not Scheduled
+'2026-08-09,Adarsh,Adarsh
+'2026-08-10,Sid,Not Scheduled
+'2026-08-11,Adarsh,Not Scheduled
+'2026-08-12,Remin,Not Scheduled
+'2026-08-13,Fadil,Not Scheduled
+'2026-08-14,Edwin,Not Scheduled
+'2026-08-15,Jasim,Not Scheduled
+'2026-08-16,Jasim,Jasim
+'2026-08-17,Sid,Not Scheduled
+'2026-08-18,Adarsh,Not Scheduled
+'2026-08-19,Remin,Not Scheduled
+'2026-08-20,Fadil,Not Scheduled
+'2026-08-21,Edwin,Not Scheduled
+'2026-08-22,Jasim,Not Scheduled
+'2026-08-23,Edwin,Edwin
+'2026-08-24,Sid,Not Scheduled
+'2026-08-25,Adarsh,Not Scheduled
+'2026-08-26,Remin,Not Scheduled
+'2026-08-27,Fadil,Not Scheduled
+'2026-08-28,Edwin,Not Scheduled
+'2026-08-29,Jasim,Not Scheduled
+'2026-08-30,Fadil,Fadil
+'2026-08-31,Sid,Not Scheduled
+'2026-09-01,Adarsh,Not Scheduled
+'2026-09-02,Remin,Not Scheduled
+'2026-09-03,Fadil,Not Scheduled
+'2026-09-04,Edwin,Not Scheduled
+'2026-09-05,Jasim,Not Scheduled
+'2026-09-06,Akash,Akash
+'2026-09-07,Sid,Not Scheduled
+'2026-09-08,Adarsh,Not Scheduled
+'2026-09-09,Remin,Not Scheduled
+'2026-09-10,Fadil,Not Scheduled
+'2026-09-11,Edwin,Not Scheduled
+'2026-09-12,Jasim,Not Scheduled
+'2026-09-13,Remin,Remin
+'2026-09-14,Sid,Not Scheduled
+'2026-09-15,Adarsh,Not Scheduled
+'2026-09-16,Remin,Not Scheduled
+'2026-09-17,Fadil,Not Scheduled
+'2026-09-18,Edwin,Not Scheduled
+'2026-09-19,Jasim,Not Scheduled
+'2026-09-20,Sid,Sid
+'2026-09-21,Sid,Not Scheduled
+'2026-09-22,Adarsh,Not Scheduled
+'2026-09-23,Remin,Not Scheduled
+'2026-09-24,Fadil,Not Scheduled
+'2026-09-25,Edwin,Not Scheduled
+'2026-09-26,Jasim,Not Scheduled
+'2026-09-27,Adarsh,Adarsh
+'2026-09-28,Sid,Not Scheduled
+'2026-09-29,Adarsh,Not Scheduled
+'2026-09-30,Remin,Not Scheduled
+'2026-10-01,Fadil,Not Scheduled
+'2026-10-02,Edwin,Not Scheduled
+'2026-10-03,Jasim,Not Scheduled
+'2026-10-04,Jasim,Jasim
+'2026-10-05,Sid,Not Scheduled
+'2026-10-06,Adarsh,Not Scheduled
+'2026-10-07,Remin,Not Scheduled
+'2026-10-08,Fadil,Not Scheduled
+'2026-10-09,Edwin,Not Scheduled
+'2026-10-10,Jasim,Not Scheduled
+'2026-10-11,Edwin,Edwin
+'2026-10-12,Sid,Not Scheduled
+'2026-10-13,Adarsh,Not Scheduled
+'2026-10-14,Remin,Not Scheduled
+'2026-10-15,Fadil,Not Scheduled
+'2026-10-16,Edwin,Not Scheduled
+'2026-10-17,Jasim,Not Scheduled
+'2026-10-18,Fadil,Fadil
+'2026-10-19,Sid,Not Scheduled
+'2026-10-20,Adarsh,Not Scheduled
+'2026-10-21,Remin,Not Scheduled
+'2026-10-22,Fadil,Not Scheduled
+'2026-10-23,Edwin,Not Scheduled
+'2026-10-24,Jasim,Not Scheduled
+'2026-10-25,Akash,Akash
+'2026-10-26,Sid,Not Scheduled
+'2026-10-27,Adarsh,Not Scheduled
+'2026-10-28,Remin,Not Scheduled
+'2026-10-29,Fadil,Not Scheduled
+'2026-10-30,Edwin,Not Scheduled
+'2026-10-31,Jasim,Not Scheduled
+'2026-11-01,Remin,Remin
+'2026-11-02,Sid,Not Scheduled
+'2026-11-03,Adarsh,Not Scheduled
+'2026-11-04,Remin,Not Scheduled
+'2026-11-05,Fadil,Not Scheduled
+'2026-11-06,Edwin,Not Scheduled
+'2026-11-07,Jasim,Not Scheduled
+'2026-11-08,Sid,Sid
+'2026-11-09,Sid,Not Scheduled
+'2026-11-10,Adarsh,Not Scheduled
+'2026-11-11,Remin,Not Scheduled
+'2026-11-12,Fadil,Not Scheduled
+'2026-11-13,Edwin,Not Scheduled
+'2026-11-14,Jasim,Not Scheduled
+'2026-11-15,Adarsh,Adarsh
+'2026-11-16,Sid,Not Scheduled
+'2026-11-17,Adarsh,Not Scheduled
+'2026-11-18,Remin,Not Scheduled
+'2026-11-19,Fadil,Not Scheduled
+'2026-11-20,Edwin,Not Scheduled
+'2026-11-21,Jasim,Not Scheduled
+'2026-11-22,Jasim,Jasim
+'2026-11-23,Sid,Not Scheduled
+'2026-11-24,Adarsh,Not Scheduled
+'2026-11-25,Remin,Not Scheduled
+'2026-11-26,Fadil,Not Scheduled
+'2026-11-27,Edwin,Not Scheduled
+'2026-11-28,Jasim,Not Scheduled
+'2026-11-29,Edwin,Edwin
+'2026-11-30,Sid,Not Scheduled
+'2026-12-01,Adarsh,Not Scheduled
+'2026-12-02,Remin,Not Scheduled
+'2026-12-03,Fadil,Not Scheduled
+'2026-12-04,Edwin,Not Scheduled
+'2026-12-05,Jasim,Not Scheduled
+'2026-12-06,Fadil,Fadil
+'2026-12-07,Sid,Not Scheduled
+'2026-12-08,Adarsh,Not Scheduled
+'2026-12-09,Remin,Not Scheduled
+'2026-12-10,Fadil,Not Scheduled
+'2026-12-11,Edwin,Not Scheduled
+'2026-12-12,Jasim,Not Scheduled
+'2026-12-13,Akash,Akash
+'2026-12-14,Sid,Not Scheduled
+'2026-12-15,Adarsh,Not Scheduled
+'2026-12-16,Remin,Not Scheduled
+'2026-12-17,Fadil,Not Scheduled
+'2026-12-18,Edwin,Not Scheduled
+'2026-12-19,Jasim,Not Scheduled
+'2026-12-20,Remin,Remin
+'2026-12-21,Sid,Not Scheduled
+'2026-12-22,Adarsh,Not Scheduled
+'2026-12-23,Remin,Not Scheduled
+'2026-12-24,Fadil,Not Scheduled
+'2026-12-25,Edwin,Not Scheduled
+'2026-12-26,Jasim,Not Scheduled
+'2026-12-27,Sid,Sid
+'2026-12-28,Sid,Not Scheduled
+'2026-12-29,Adarsh,Not Scheduled
+'2026-12-30,Remin,Not Scheduled
+'2026-12-31,Fadil,Not Scheduled
