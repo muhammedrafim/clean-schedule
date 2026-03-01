@@ -1,7 +1,7 @@
 // ============================================
 // CONFIGURATION - UPDATE THIS with your Google Apps Script URL
 // ============================================
-const GOOGLE_APPS_SCRIPT_URL = ''; // Paste your deployment URL here
+const GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzcscpzk_uI6Ryxx7GUIbmzJhto7oEQEsWH2pOlZw-VgGJNK8-rMlUzLWrkkNz-jo8NVQ/exec'; // Paste your deployment URL here
 const USE_GOOGLE_SHEETS = GOOGLE_APPS_SCRIPT_URL.length > 0;
 
 // ============================================
